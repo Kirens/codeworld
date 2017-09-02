@@ -14,6 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Make certain space is available with swap
+sudo dd if=/dev/zero of=/swap bs=1024 count=2097152
+chmod 600 /swap
+sudo mkswap /swap
+sudo swapon /swap
+
 source base.sh
 
 rm -rf $BUILD ~/.ghc ~/.ghcjs
